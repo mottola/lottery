@@ -15,8 +15,11 @@ body {
 h1,
 h2 {
     color: #ffe730;
-    text-decoration: underline;
     font-family: 'VT323';
+}
+
+#underline {
+    text-decoration: underline;
 }
 
 .jumbotron,
@@ -53,6 +56,19 @@ td {
     color: #ffe730;
     background-image: none;
     font-family: 'VT323';
+    font-size: 18px;
+}
+
+#playButton {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px dotted #ffe730;
+    background-color: #373737;
+    color: #ffe730;
+    background-image: none;
+    font-family: 'VT323';
+    font-size: 18px;
 }
 
 .box {
@@ -64,4 +80,26 @@ td {
 #play {
     width: 250px;
     height: 150px;
+}
+
+#userButton,
+input {
+    color: black;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.error {
+    font-size: 24px;
+    color: red;
+}
+
+button:focus {
+    outline: 0!important;
+}
+
+.win {
+    font-size: 30px;
+    color: #ff61ff;
 }

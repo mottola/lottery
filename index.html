@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- MarkNewcomb1/lotter -->
 
 <head>
     <meta charset="UTF-8">
@@ -30,8 +31,6 @@
     <style>
         @import url(style.css);
         /* This is a much better way to import a Google Font */
-        
-        <script src="script.js"></script>;
     </style>
 
 </head>
@@ -39,11 +38,11 @@
 <body>
     <div class="container-fluid">
         <div class="jumbotron">
-            <h1>Lottery Bonanza!!</h1>
-            <h2>How to Play</h2>
+            <h1 id=>Lottery Bonanza!!</h1>
+            <h2 id="underline">How to Play</h2>
             <p>You start the game with $10 in virtual money (on us!!).
                 <br> Enter 4 distinct numbers between 1 and 10 (1 and 10 inclusive!).
-                <br> Press the "Play Your Hand" button to generate the lottery drawing(cross your fingers!!). This and each subsequent drawing costs you $2.
+                <br> Press the "Play Hand" button to generate the lottery drawing(cross your fingers!!). This and each subsequent drawing costs you $2.
                 <br> Your winnings are based on how many of your numbers chosen match with the lottery results.
                 <br>Here is a table showing your winning potential:</p>
             <div class="container-fluid">
@@ -77,19 +76,23 @@
                         </table>
                     </div>
                     <div class="span10">
-                        <h2>Now Let's Get Playing!!!</h2>
-                        <button id="ticketButton" type="button" class="btn btn-primary btn-lg btn-fluid">Purchase a Ticket for $2</button>
+                        <h2 id="underline">Now Let's Get Playing!!!</h2>
+                        <form id="userNumbers">
+                            <input type="number" name="quantity" min="1" max="10" id="num1">
+                            <input type="number" name="quantity" min="1" max="10" id="num2">
+                            <input type="number" name="quantity" min="1" max="10" id="num3">
+                            <input type="number" name="quantity" min="1" max="10" id="num4">
+                        </form>
+                        <div id="output"></div>
                         <h2>Your Money: </h2>
-                        <h3> $10 </h3>
-                        <!-- This should negate $2 from player and promt validated input -->
-                        <button id="ticketButton" type="button" class="btn btn-primary btn-lg btn-fluid">Generate Lottery Draw!</button>
-                        <!--Body content-->
+                        <h3 id="playerFunds"> $10 </h3>
+                        <button id="ticketButton" type="button" class="btn btn-primary btn-lg btn-fluid">Play Hand!!</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="script.js"></script>;
 </body>
 
 </html>
