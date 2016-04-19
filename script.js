@@ -1,27 +1,23 @@
 var userMoney = 10;
-var num1;
-var num2;
-var num3;
-var num4;
 
 var output = (document.getElementById('output'));
 var playButton = document.getElementById('playButton');
 var ticketButton = document.getElementById('ticketButton');
 var playerFunds = document.getElementById('playerFunds');
+playerFunds.innerHTML = "$" + userMoney;
 
 function playHand() {
-    userMoney -= 2;
+    if (userMoney == 0) {
+        output.innerHTML = "<span class='error'>You are out of money!!</span>";
+        return;
+    }
+
     var userNumbers = [];
-    playerFunds.innerHTML = "$" + userMoney;
     var num1 = (document.getElementById('num1'));
     var num2 = (document.getElementById('num2'));
     var num3 = (document.getElementById('num3'));
     var num4 = (document.getElementById('num4'));
 
-    if (userMoney == 0) {
-        output.innerHTML = "<span class='error'>You are out of money!!</span>";
-        return false;
-    }
     // Makes Certain that user input is stored as an integer \\
     num1 = parseInt(num1.value);
     num2 = parseInt(num2.value);
@@ -30,6 +26,21 @@ function playHand() {
 
     userNumbers.push(num1, num2, num3, num4);
     console.log(userNumbers);
+    for (var i = 0; i < userNumbers.length; i++) {
+        if (userNumbers[i] > 0 && userNumbers[i] < 11) {
+
+        } else {
+            output.innerHTML = "<span class='error'>Read the directions and try again!!</span>";
+            return;
+        }
+        if (userNumbers[i] == userNumbers[i + 1]) {
+            output.innerHTML = "<span class='error'>Read the directions and try again!!</span>";
+            return;
+        }
+    }
+    userMoney -= 2;
+    playerFunds.innerHTML = "$" + userMoney;
+
 
     console.log("You pressed the button");
     console.log(userMoney);
@@ -57,7 +68,7 @@ function compare(lottery, user) {
         }
     }
     if (matchingNumbers == 0) {
-        output.innerHTML = "<span class='win'>Sorry, you didn't win shit, bitch!!</span>";
+        output.innerHTML = "<span class='win'>Sorry, you didn't win!!</span>";
     } else if ((matchingNumbers == 1)) {
         output.innerHTML = "<span class='win'>You won $4!!</span>";
         userMoney += 4;
@@ -69,9 +80,10 @@ function compare(lottery, user) {
         userMoney += 64;
     } else {
         output.innerHTML = "<span class='win'>Sweet baby Jesus!! You won $4,096!!!</span>";
-        userMoney += 4, 096;
+        userMoney += 4096;
         console.log(matchingNumbers);
     }
-    return userMoney;
+    return playerFunds.innerHTML = "$" + userMoney;
+
 }
 ticketButton.onclick = playHand;
